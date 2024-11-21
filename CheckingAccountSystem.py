@@ -6,12 +6,19 @@ class CheckingAccount:
         self.balance = 0
 
     def add_balance(self, value_added):
-        pass
+        self.balance += value_added
 
     def wire_money(self, value_wired):
-        pass
+        self.balance -= value_wired
 
     def withdraw_balance(self, value_withdrawal):
-        pass
+        value = self.balance - value_withdrawal
+        if value < 0:
+            print(f'Operation not authorized. Balance is not avaiable')
+        else:
+            self.balance -= value_withdrawal
+
+    def check_balance(self):
+        print(f'Your current balance is R${self.balance:.2f}')
 
 conta_du = CheckingAccount('Eduardo', '123.456.789-00')
